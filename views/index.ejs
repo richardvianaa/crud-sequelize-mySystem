@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<style>
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    li {
+        width: 210px;
+        height: 40px;
+        background-color: black;
+        display: flex;
+    }
+    
+    li>a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    
+    li>a:hover {
+        background-color: green;
+        color: white;
+    }
+</style>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>
+        Bem Vindo ao meu Sistema Pessoal
+    </p>
+    <ul>
+        <li><a href="/users">PAGINA USUARIOS</a></li>
+        <li><a href="/users/register">REGISTRO DE IMAGENS</a></li>
+        <li><a href="/users/cadastro">CADASTRAR USUÀRIO</a></li>
+        <li><a href="/produto">PRODUTOS</a></li>
+        <li><a href="/categoria">CATEGORIA</a></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+</head>
+<style>
+    .btn {
+        background-color: rgb(223, 43, 43);
+        color: aliceblue;
+        border: none;
+        box-shadow: 0px 1px 2px black;
+        padding: 4px 6px;
+        margin-top: 5px;
+        transition: all 0.3s;
+    }
+    
+    .btn:hover {
+        cursor: pointer;
+        background-color: rgb(122, 4, 4);
+    }
+</style>
+
+<body>
+    <main>
+        <h1>Usuario Encontrado</h1>
+        <% user.forEach((usu) => { %>
+            <span>ID: <%= usu.id %></span><br>
+            <span>NOME: <%= usu.nome %></span><br>
+            <span>EMail: <%= usu.email %></span><br><br>
+            <button><a style="text-decoration:none" href="/users/editar/<%= usu.id %>">Editar Perfil</a></button>
+            <form action="/users/deletar/<%= usu.id %>?_method=DELETE" method="post">
+                <button class="btn" type="submit">Deletar</button>
+            </form>
+            <% }) %>
+    </main>
+</body>
+
+</html>
