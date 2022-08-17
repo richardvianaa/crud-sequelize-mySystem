@@ -79,26 +79,45 @@
         background-color: rgb(3, 83, 3);
         color: rgb(206, 205, 205);
     }
+    
+    .errors {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    ul>li {
+        list-style: none;
+        color: red;
+        font-weight: 600;
+    }
 </style>
 
 <body>
     <main>
         <form action="/users/cadastro" method="POST">
+            <div class="errors">
+                <ul>
+
+                </ul>
+            </div>
             <div>
                 <label for="nome">Novo Nome</label>
-                <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+                <input class="nome" type="text" name="nome" id="nome" placeholder="Digite seu nome">
             </div>
             <div>
                 <label for="email">Novo E-mail</label>
-                <input type="email" name="email" id="email" placeholder="Digite um e-mail válido">
+                <input class="email" type="email" name="email" id="email" placeholder="Digite um e-mail válido">
             </div>
             <div>
                 <label for="senha">Nova Senha</label>
-                <input type="password" name="senha" id="senha" placeholder="Digite uma senha válida">
+                <input class="senha" type="password" name="senha" id="senha" placeholder="Digite uma senha válida">
             </div>
-            <button type="submit">CADASTRAR</button>
+            <button id="buttonjs" type="submit">CADASTRAR</button>
         </form>
     </main>
+    <script src="/js/cadastro.js"></script>
 </body>
 
 </html>

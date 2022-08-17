@@ -3,7 +3,7 @@ module.exports = (Sequelize, DataType) => {
         id_categoria: {
             type: DataType.INTEGER,
             primaryKey: true,
-            autoIncremet: true,
+            autoIncrement: true
         },
         nome: DataType.STRING,
     }, {

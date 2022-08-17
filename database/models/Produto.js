@@ -3,7 +3,7 @@ module.exports = (Sequelize, DataType) => {
         id_produto: {
             type: DataType.INTEGER,
             primaryKey: true,
-            autoIncremet: true,
+            autoIncrement: true
         },
         nome: DataType.STRING,
         descricao: DataType.STRING,
@@ -20,8 +20,15 @@ module.exports = (Sequelize, DataType) => {
         Produto.belongsTo(listModels.Categoria, {
             foreignKey: 'fk_categoria',
             as: 'categoria'
+        });
+
+
+        Produto.belongsToMany(listModels.Pedido, {
+            foreignKey: "fk_pedido",
+            as: "pedidos",
+            through: "listModels.Itempedido"
         })
-    }
+    };
 
     return Produto;
 };

@@ -6,10 +6,9 @@ const op = sequelize.Op;
 const usuarioController = {
     index: async(req, res) => {
         let usersAll = await Usuario.findAll({
-            limit: 5, //limit de usuarios que quero que apareça;
+            limit: 4, //limit de usuarios que quero que apareça;
             offset: 0 // pula o id passado e começa a partir do proximo;
         });
-
         return res.render('usuario', { usersAll });
     },
     create: (req, res) => {
@@ -30,7 +29,7 @@ const usuarioController = {
         const { id } = req.params;
         let deleteUser = await Usuario.destroy({
             where: {
-                id_user: id
+                id: id
             }
         })
         console.log(deleteUser);
@@ -93,7 +92,7 @@ const usuarioController = {
                 ['id', 'ASC']
             ]
         });
-
+        console.log(usersAll)
         return res.render('usuario', { usersAll });
     }
 };

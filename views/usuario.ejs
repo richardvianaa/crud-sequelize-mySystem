@@ -44,27 +44,29 @@
     <main>
         <h1>Lista de Usuários</h1>
         <ul style="list-style-type: none;">
-            <% usersAll.forEach(userAll => { %>
-                <li><br>- ID:
-                    <%= userAll.id %>
-                </li>
-                <li>NOME:
-                    <%= userAll.nome %>
-                </li>
-                <li> EMAIL:
-                    <%= userAll.email %>
-                </li><br>
-                <li>
-                    <button><a style="text-decoration: none;" href="/users/buscarUser/<%=userAll.id%>">Ver Perfil</a></button>
-                    <button><a style="text-decoration: none;" href="/users/editar/<%=userAll.id%>">Editar Perfil</a></button>
-                    <form action="/users/deletar/<%= userAll.id %>?_method=DELETE" method="post">
-                        <button class="btn" type="submit">Deletar</button>
-                    </form>
-                </li>
-                <% }) %>
+            <% if(usersAll.length === 0){ %>
+                <h1>Usuário não encontrado</h1>
+                <%} else { %>
+                    <% usersAll.forEach(userAll => { %>
+                        <li><br>- ID:
+                            <%= userAll.id %>
+                        </li>
+                        <li>NOME:
+                            <%= userAll.nome %>
+                        </li>
+                        <li> EMAIL:
+                            <%= userAll.email %>
+                        </li><br>
+                        <li>
+                            <button><a style="text-decoration: none;" href="/users/buscarUser/<%=userAll.id%>">Ver Perfil</a></button>
+                            <button><a style="text-decoration: none;" href="/users/editar/<%=userAll.id%>">Editar Perfil</a></button>
+                            <form action="/users/deletar/<%= userAll.id %>?_method=DELETE" method="post">
+                                <button class="btn" type="submit">Deletar</button>
+                            </form>
+                        </li>
+                        <% }) %>
+                            <%}%>
         </ul>
-
     </main>
 </body>
-
 </html>

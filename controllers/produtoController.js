@@ -1,5 +1,3 @@
-const sequelize = require('sequelize');
-
 const { Produto, Categoria } = require('../database/models')
 
 
